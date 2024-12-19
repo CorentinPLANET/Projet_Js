@@ -10,23 +10,228 @@
     <header>
       <div class="baniereHeader">
         <img src="Assets/img/banniere_site.png" alt="Baniere du site" />
-        <h1>Press Start</h1>
+        <h1>PressStart</h1>
       </div>
     </header>
     <nav>
-      <ul class="liste">
-        <li>Acceuil</li>
-        <li class="sous_liste_hover">
-          Magasin
-          <ul class="sous_liste">
-            <li>Console</li>
-            <li>Jeux-vidéo</li>
-          </ul>
-        </li>
-        <li>Paniers</li>
-        <li><input type="text" placeholder="Rechercher..."/></li>
-      </ul>
+      <div class="topNav">
+        <img src="Assets/img/logoProjetJS.png" alt="Logo PressStart" />
+        <ul class="liste">
+          <li class="opn-home" id="opn-home">Accueil</li>
+          <li class="opn-sous-list" id="opn-sous-list">Magasin</li>
+          <li class="opn-panier" id="opn-panier">Panier</li>
+        </ul>
+        <input type="text" placeholder="Rechercher..." id="search" />
+      </div>
+      <div class="bottomNav" id="bottomNav">
+        <ul class="sous-liste" id="sous-list">
+          <li id="opn-console">Console</li>
+          <li id="opn-jeux">Jeux</li>
+        </ul>
+      </div>
     </nav>
+    <main>
+      <section id="home">
+        <div class="image_accueil">
+          <img
+            src="Assets/img/mario_galaxy_accueil.png"
+            alt="Super Mario Galaxy"
+          />
+        </div>
+        <div class="image_accueil">
+          <img
+            src="Assets/img/mario_et_sonic_accueil.png"
+            alt="Mario et Sonic aux Jeux Olympiques d'Hiver"
+          />
+        </div>
+
+        <div class="image_accueil">
+          <img
+            src="Assets/img/gamecube_accueil.png"
+            alt="GameCube et manette"
+          />
+        </div>
+      </section>
+      <section class="jeux" id="jeux">
+        <h2>Jeux-Vidéo</h2>
+        <div class="cards-container" id="cardContainer">
+          <!-- Carte de jeu vidéo -->
+          <div class="card">
+            <img
+              src="Assets/img/mario_galaxy_card.png"
+              alt="Super Mario Galaxy"
+            />
+            <h3>Super Mario Galaxy</h3>
+            <p>
+              Super Mario Galaxy est un jeu vidéo de plates-formes développé par
+              Nintendo EAD Tokyo sous la direction de Yoshiaki Koizumi.
+              Disponible uniquement sur la <strong>Nintendo Wii</strong>
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">46.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/wii_sports_card.png" alt="Wii Sports" id/>
+            <h3>Wii Sports</h3>
+            <p>
+              Wii Sports est un jeu vidéo de sport développé et édité par
+              Nintendo comme titre de lancement pour la console de jeux vidéo
+              Wii. Disponible uniquement sur <strong>Nintendo Wii</strong>
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">35.99€</span>
+          </div>
+
+          <div class="card">
+            <img
+              src="Assets/img/animal_crossing_card.png"
+              alt="Animal Crossing"
+            />
+            <h3>Animal Crossing Wild World</h3>
+            <p>
+              Animal Crossing: Wild World est un jeu vidéo développé par
+              Nintendo EAD et édité par Nintendo sur Nintendo DS en 2005.
+              Disponible sur <strong>Nintendo DS</strong> et sur
+              <strong>Nintendo 2ds/3ds</strong>
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">31.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/resident_evil_card.png" alt="Resident Evil" />
+            <h3>Resident Evil</h3>
+            <p>
+              Resident Evil, connue au Japon sous le nom Biohazard est une série
+              de jeux vidéo d'aventure, action et réflexion de type survival
+              horror. Disponible uniquement sur <strong>Gamecube</strong>
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">24.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/mario_64_card.png" alt="Super Mario 64" />
+            <h3>Super Mario 64</h3>
+            <p>
+              Super Mario 64 est un jeu de plates-formes développé par le studio
+              japonais Nintendo Entertainment Analysis and Development sous la
+              direction de Shigeru Miyamoto et publié par Nintendo pour la
+              Nintendo 64. Disponible uniquement sur
+              <strong>Nintendo 64</strong>
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">52.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/sonic_the_hedgehog_card.png" alt="Sonic" />
+            <h3>Sonic The Hedgehog</h3>
+            <p>
+              Sonic the Hedgehog ou plus simplement Sonic, est une série de jeux
+              vidéo, développée par la firme japonaise Sega depuis 1991.
+              Disponible uniquement sur <strong>Mega Drive</strong>
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">24.99€</span>
+          </div>
+        </div>
+      </section>
+      <section class="console" id="console">
+        <h2>Consoles</h2>
+        <div class="cards-container" id="cardContainer">
+          <!-- Carte de jeu vidéo -->
+          <div class="card">
+            <img
+              src="Assets/img/super_nintendo_card.png"
+              alt="Super Nintendo"
+            />
+            <h3>Super Nintendo</h3>
+            <p>
+              La Super Nintendo — appelée Super Famicom au Japon et Super
+              Nintendo Entertainment System (Super NES ou SNES) en Amérique du
+              Nord — est une console de jeux vidéo du constructeur japonais
+              Nintendo commercialisée à partir de novembre 1990.
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">324.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/nintendo_64_card.png" alt="Nintendo 64" />
+            <h3>Nintendo 64</h3>
+            <p>
+              La Nintendo 64 également connue sous les noms de code Project
+              Reality et Ultra 64 lors de sa phase de développement, est une
+              console de jeux vidéo de salon, sortie en 1996.
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">524.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/mega_drive_card.png" alt="Mega Drive" />
+            <h3>Mega Drive</h3>
+            <p>
+              La Mega Drive ou Sega Genesis en Amérique du Nord, est une console
+              de jeux vidéo de quatrième génération.
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">724.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/nintendo_dsi_card.png" alt="Nintendo DSi" />
+            <h3>Nintendo DSi</h3>
+            <p>
+              La Nintendo DSi est une console de jeu Nintendo succédant à la
+              Nintendo DS Lite.
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">74.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/nintendo_wii_card.png" alt="Nintendo WII" />
+            <h3>Nintendo WII</h3>
+            <p>
+              La Wii est une console de jeux de salon produite par le fabricant
+              japonais Nintendo. Elle fait partie de la septième génération de
+              consoles
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">124.99€</span>
+          </div>
+
+          <div class="card">
+            <img src="Assets/img/gamecube_card.png" alt="Nintendo GameCube" />
+            <h3>Nintendo GameCube</h3>
+            <p>
+              La Nintendo GameCube est une console de jeux vidéo de l'entreprise
+              japonaise Nintendo, fabriquée entre 2001 et 2007.
+            </p>
+            <button>Ajouter au panier</button>
+            <span class="price">324.99€</span>
+          </div>
+        </div>
+      </section>
+      <section id="panier"><div id="div_panier"></div></section>
+    </main>
+    <footer>
+      <a href="#">07 49 20 37 19</a>
+      <a href="#">Press_Start@gmail.com</a>
+      <div class="reseaux">
+          <img src="Assets/img/instagram.png" alt="Instagram">
+          <img src="Assets/img/tic-tac.png" alt="Tik Tok">
+          <img src="Assets/img/twitter.png" alt="Twitter">
+      </div>
+      <div class="mentions">
+          <span>Site Crée par Corentin, Baptiste, Matéo et Elona</span>
+          <span>Mentions légales</span>
+          <span>CGU</span>
+      </div>
+  </footer>
   </body>
   <script src="Assets/js/code.js"></script>
 </html>
