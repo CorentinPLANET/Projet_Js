@@ -1,13 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Assets/css/style.css" />
     <title>Site Jeu Video</title>
-</head>
-<body>
-    
-</body>
-<script src="Assets/js/code.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="baniereHeader">
+        <img src="Assets/img/banniere_site.png" alt="Baniere du site" />
+        <h1>PressStart</h1>
+      </div>
+    </header>
+    <nav>
+      <div class="topNav">
+        <img src="Assets/img/logoProjetJS.png" alt="Logo PressStart" />
+        <ul class="liste">
+          <li class="opn-home" id="opn-home">Accueil</li>
+          <li class="opn-sous-list" id="opn-sous-list">Magasin</li>
+          <li class="opn-panier" id="opn-panier">Panier</li>
+        </ul>
+        <input type="text" placeholder="Rechercher..." id="search" />
+      </div>
+      <div class="bottomNav" id="bottomNav">
+        <ul class="sous-liste" id="sous-list">
+          <li id="opn-device">Console</li>
+          <li id="opn-jeux">Jeux</li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <section id="home">
+        <div class="image_accueil">
+          <img
+            src="Assets/img/mario_galaxy_accueil.png"
+            alt="Super Mario Galaxy"
+          />
+        </div>
+        <div class="image_accueil">
+          <img
+            src="Assets/img/mario_et_sonic_accueil.png"
+            alt="Mario et Sonic aux Jeux Olympiques d'Hiver"
+          />
+        </div>
+
+        <div class="image_accueil">
+          <img
+            src="Assets/img/gamecube_accueil.png"
+            alt="GameCube et manette"
+          />
+        </div>
+      </section>
+      <section class="jeux" id="jeux">
+        <h2>Jeux-Vidéo</h2>
+        <div class="cards-container" id="game_cardContainer"></div>
+      </section>
+      <section class="device" id="device">
+        <h2>Consoles</h2>
+        <div class="cards-container" id="device_cardContainer"></div>
+      </section>
+      <section id="panier"><h2>Votre Panier</h2><div id="container-panier"></div></section>
+    </main>
+    <footer>
+      <a href="#">07 49 20 37 19</a>
+      <a href="#">Press_Start@gmail.com</a>
+      <div class="reseaux">
+        <img src="Assets/img/instagram.png" alt="Instagram" />
+        <img src="Assets/img/tic-tac.png" alt="Tik Tok" />
+        <img src="Assets/img/twitter.png" alt="Twitter" />
+      </div>
+      <div class="mentions">
+        <span>Site Crée par Corentin, Baptiste, Matéo et Elona</span>
+        <span>Mentions légales</span>
+        <span>CGU</span>
+      </div>
+    </footer>
+  </body>
+  <script src="Assets/js/code.js"></script>
 </html>
