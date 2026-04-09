@@ -108,6 +108,7 @@ input[type="text"] {
 }
 h2 {
   font-size: 1.8rem;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .jeux,
@@ -126,7 +127,7 @@ h2 {
   margin: 0;
 }
 
-.card {
+.card-shop {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -137,17 +138,17 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.card_img {
+.card_img-shop {
   width: 100%;
   border-radius: 25px;
   height: auto;
 }
-.card_title {
+.card_title-shop {
   margin: 10px 0;
   font-size: 1.2rem;
 }
 
-.card_text {
+.card_text-shop {
   flex-grow: 1;
   font-size: 0.9rem;
   color: #ccc;
@@ -155,7 +156,7 @@ h2 {
   text-align: start;
 }
 
-.card_button {
+.card_button-shop {
   background-color: #5c3c92;
   color: white;
   border: none;
@@ -163,7 +164,7 @@ h2 {
   cursor: pointer;
   border-radius: 5px;
 }
-.card_price {
+.card_price-shop {
   position: absolute;
   font-size: 1.5rem;
   top: 10px;
@@ -173,77 +174,73 @@ h2 {
   border-radius: 5px;
   background-color: yellow;
 }
-.card button:hover {
+.card-shop button:hover {
   background-color: #7b52b1;
 }
-
-#div_panier > div > div {
+#panier {
+  display: none;
+  flex-direction: column;
+}
+#container-panier {
+  width: 100vw;
+  justify-content: space-between;
+}
+.div-panier {
+  width: 60%;
+}
+.card-panier {
+  display: flex;
+}
+.card_quantity-panier {
+  display: flex;
+  background-color: #46467d;
+  align-items: center;
+  height: 6.25vh;
+  width: 20%;
+  font-size: 3vh;
+  justify-content: space-around;
+  align-self: flex-end;
+  border-radius: 3vh;
+}
+.card_content-panier {
   display: flex;
   background-color: #6e6ea5;
-  width: 45vw;
+  width: 80%;
   position: relative;
   align-items: center;
   justify-content: space-between;
   border-radius: 3vh;
 }
 
-#div_panier > div > div > img {
-  width: 20vh;
+.card_img-panier {
   height: 20vh;
   object-fit: cover;
   overflow: hidden;
   margin-left: 1vw;
 }
 
-#div_panier > div > div:first-child > p {
-  font-size: 3vh;
-  margin-right: 15vw;
-  max-width: 10vw;
-}
-#div_panier > div > div:last-child > p {
+.card_title-panier {
   font-size: 3vh;
 }
-
-#div_panier div div:nth-child(2) {
-  background-color: #46467d;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.card_price-panier {
+  background-color: #7a8fa2;
+  align-content: center;
+  border-radius: 3vh;
+  align-self: flex-end;
+  font-size: 3vh;
   width: 10vw;
   height: 6.25vh;
-  justify-content: space-evenly;
-  color: #fff;
-  align-items: center;
 }
 
-#div_panier div > div div {
-  display: flex;
-  background-color: #7a8fa2;
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 5.5vh;
-  width: 5vw;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5vh;
-}
-
-#div_panier > div {
+/*  #div_panier > div {
   display: flex;
   position: relative;
   width: 55vw;
   height: 25vh;
   margin-top: 2vh;
-}
+} */
 
-#panier {
-  display: none;
-  justify-content: space-between;
-}
-
-#panier > div:last-child {
+/* #panier > div:last-child {
   display: flex;
   flex-direction: column;
   background-color: #6e6ea5;
@@ -257,8 +254,7 @@ h2 {
   max-width: 25vw;
   padding-left: 2.5vw;
   font-size: 2vh;
-}
-
+} */
 footer {
   display: flex;
   color: #000000;
@@ -268,7 +264,6 @@ footer {
   justify-content: space-around;
   align-items: center;
   background-color: #dda0dd;
-  height: 100%;
   padding: 1% 0;
 }
 footer span {

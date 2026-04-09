@@ -21,7 +21,7 @@ const game_products = [
     description:
       "Envolez-vous dans de nouvelles galaxies avec Mario pour délivrer la princesse Peach.",
     price: 46.99,
-    quantity: 0,
+    quantity: 1,
   },
 
   {
@@ -215,23 +215,24 @@ opn_device.addEventListener("click", () => {
   for (let i = 0; i < main[0].children.length; i++) {
     main[0].children[i].style.display = "none";
   }
-  create_cards(device_products);
+  create_cards_shop(device_products);
   device.style.display = "flex";
 });
 opn_jeux.addEventListener("click", () => {
   for (let i = 0; i < main[0].children.length; i++) {
     main[0].children[i].style.display = "none";
   }
-  create_cards(game_products);
+  create_cards_shop(game_products);
   jeux.style.display = "flex";
 });
 opn_panier.addEventListener("click", () => {
   for (let i = 0; i < main[0].children.length; i++) {
     main[0].children[i].style.display = "none";
   }
+  create_cards_panier();
   dis_panier.style.display = "flex";
 });
-create_cards = (products) => {
+create_cards_shop = (products) => {
   if (products[0].category === "console") {
     var cardContainer = document.getElementById("device_cardContainer");
   }
@@ -241,124 +242,193 @@ create_cards = (products) => {
   cardContainer.innerHTML = "";
   for (let i = 0; i < products.length; i++) {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card-shop";
+    cardContainer.appendChild(card);
+
     const card_img = document.createElement("img");
-    card_img.className = "card_img";
+    card_img.className = "card_img-shop";
+
     const card_title = document.createElement("h3");
-    card_title.className = "card_title";
+    card_title.className = "card_title-shop";
+
     const card_text = document.createElement("p");
-    card_text.className = "card_text";
+    card_text.className = "card_text-shop";
+
     const card_price = document.createElement("span");
-    card_price.className = "card_price";
+    card_price.className = "card_price-shop";
+
     const card_button = document.createElement("button");
-    card_button.className = "card_button";
-    card_button.setAttribute("id", "add_panier_" + products[i].productName);
+    card_button.className = "card_button-shop";
+
     card.appendChild(card_img);
     card.appendChild(card_title);
     card.appendChild(card_text);
     card.appendChild(card_price);
     card.appendChild(card_button);
+
     card_img.src = products[i].imageUrl;
+    card_img.setAttribute("alt", "image " + products[i].productName);
+
     card_title.innerHTML = products[i].productName.replaceAll("_", " ");
+
     card_text.innerHTML = products[i].description;
+
     card_price.innerHTML = products[i].price + "€";
+    
     card_button.innerText = "Ajouter au panier";
-    cardContainer.appendChild(card);
+    card_button.addEventListener("click", () => {
+      products[i].quantity += 1;
+    });
   }
 };
+create_cards_panier = () => {
+  const panier_container = document.getElementById("container-panier");
+  panier_container.innerHTML = "";
+  const panier = document.createElement("div");
+  panier.className = "div-panier";
+  const total = document.createElement("div");
+  total.className = "div-total";
+  panier_container.appendChild(panier);
+  panier_container.appendChild(total);
+  for (let i = 0; i < game_products.length; i++) {
+    if (game_products[i].quantity > 0) {
+      const card = document.createElement("div");
+      card.className = "card-panier";
+      panier.appendChild(card);
 
+      const card_content = document.createElement("div");
+      card_content.className = "card_content-panier";
+
+      const card_quantity = document.createElement("div");
+      card_quantity.className = "card_quantity-panier";
+
+      card.appendChild(card_content);
+      card.appendChild(card_quantity);
+
+      const card_img = document.createElement("img");
+      card_img.className = "card_img-panier";
+
+      const card_title = document.createElement("h3");
+      card_title.className = "card_title-panier";
+
+      const card_price = document.createElement("span");
+      card_price.className = "card_price-panier";
+
+      card_img.src = game_products[i].imageUrl;
+      card_title.innerHTML = game_products[i].productName.replaceAll("_", " ");
+      card_price.innerHTML = game_products[i].price + "€";
+      card_content.appendChild(card_img);
+      card_content.appendChild(card_title);
+      card_content.appendChild(card_price);
+
+      const quantity = document.createElement("span");
+      quantity.className = "product_quantity-panier";
+
+      const minus = document.createElement("span");
+      minus.className = "decrease_quantity-panier";
+
+      const plus = document.createElement("span");
+      plus.className = "increase_quantity-panier";
+
+      minus.innerText = "-";
+      minus.addEventListener("click", () => {
+        game_products[i].quantity -= 1;
+        create_cards_panier();
+      });
+
+      quantity.innerText = game_products[i].quantity;
+      plus.innerText = "+";
+      plus.addEventListener("click", () => {
+        game_products[i].quantity += 1;
+        create_cards_panier();
+      });
+      
+      card_quantity.appendChild(minus);
+      card_quantity.appendChild(quantity);
+      card_quantity.appendChild(plus);
+    }
+  }
+};
 // Code Matéo que je ne comprends pas après 1h
-/* let panier = [];
-card_panier = () => {
-  dis_panier.innerHTML = "";
-  for (let i = 0; i < game_products.length; i++) {
-    if (game_products[i].quantity > 0)
-      panier.append(game_products[i].productName);
-  }
-  if (device_products[i].quantity > 0) {
-    panier.append(device_products[i].productName);
-  }
-  for (let i = 0; i < game_products.length; i++) {
-    let child = document.createElement("div");
-    child.setAttribute("id", "card_" + game_products[i].productName);
-    document.getElementById("div_panier").appendChild(child);
-
-    child = document.createElement("div");
-    child.setAttribute("id", "c_div_" + game_products[i].productName);
-    document
-      .getElementById("card_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("img");
-    child.setAttribute("src", " " + game_products[i].imageUrl);
-    child.setAttribute("alt", game_products[i].productName);
-    document
-      .getElementById("c_div_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("p");
-    child.innerText = game_products[i].productName.replaceAll("_", " ");
-    document
-      .getElementById("c_div_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("div");
-    child.setAttribute("id", "price_" + game_products[i].productName);
-    document
-      .getElementById("c_div_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("p");
-    child.innerText = game_products[i].price.toString() + "€";
-    document
-      .getElementById("price_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("div");
-    child.setAttribute("id", "q_div_" + game_products[i].productName);
-    document
-      .getElementById("card_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("p");
-    child.setAttribute("id", "minus_" + game_products[i].productName);
-    child.innerText = "-";
-    document
-      .getElementById("q_div_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("p");
-    child.setAttribute("id", "quant_" + game_products[i].productName);
-    child.innerText = game_products[i].quantity.toString();
-    document
-      .getElementById("q_div_" + game_products[i].productName)
-      .appendChild(child);
-
-    child = document.createElement("p");
-    child.setAttribute("id", "plus_" + game_products[i].productName);
-    child.innerText = "+";
-    document
-      .getElementById("q_div_" + game_products[i].productName)
-      .appendChild(child);
-  }
-
+/*for (let i = 0; i < game_products.length; i++) {
   let child = document.createElement("div");
-  child.setAttribute("id", "total_panier");
-  dis_panier.appendChild(child);
+  child.setAttribute("id", "card_" + game_products[i].productName);
+  document.getElementById("div_panier").appendChild(child);
 
-  let price = 0;
-  for (product of game_products) {
-    price += product.price * 100 * product.quantity;
-    child = document.createElement("p");
-    child.innerText =
-      product.quantity.toString() +
-      "x " +
-      product.productName.replaceAll("_", " ");
-    document.getElementById("total_panier").appendChild(child);
-  }
+  child = document.createElement("div");
+  child.setAttribute("id", "c_div_" + game_products[i].productName);
+  document
+    .getElementById("card_" + game_products[i].productName)
+    .appendChild(child);
+
+  child = document.createElement("img");
+  child.setAttribute("src", " " + game_products[i].imageUrl);
+  child.setAttribute("alt", game_products[i].productName);
+  document
+    .getElementById("c_div_" + game_products[i].productName)
+    .appendChild(child);
 
   child = document.createElement("p");
-  child.innerText = "Total: " + price / 100 + "€";
+  child.innerText = game_products[i].productName.replaceAll("_", " ");
+  document
+    .getElementById("c_div_" + game_products[i].productName)
+    .appendChild(child);
+
+  child = document.createElement("div");
+  child.setAttribute("id", "price_" + game_products[i].productName);
+  document
+    .getElementById("c_div_" + game_products[i].productName)
+    .appendChild(child);
+
+  child = document.createElement("p");
+  child.innerText = game_products[i].price.toString() + "€";
+  document
+    .getElementById("price_" + game_products[i].productName)
+    .appendChild(child);
+
+  child = document.createElement("div");
+  child.setAttribute("id", "q_div_" + game_products[i].productName);
+  document
+    .getElementById("card_" + game_products[i].productName)
+    .appendChild(child);
+
+  child = document.createElement("p");
+  child.setAttribute("id", "minus_" + game_products[i].productName);
+  child.innerText = "-";
+  document
+    .getElementById("q_div_" + game_products[i].productName)
+    .appendChild(child);
+
+  child = document.createElement("p");
+  child.setAttribute("id", "quant_" + game_products[i].productName);
+  child.innerText = game_products[i].quantity.toString();
+  document
+    .getElementById("q_div_" + game_products[i].productName)
+    .appendChild(child);
+
+  child = document.createElement("p");
+  child.setAttribute("id", "plus_" + game_products[i].productName);
+  child.innerText = "+";
+  document
+    .getElementById("q_div_" + game_products[i].productName)
+    .appendChild(child);
+}
+
+let child = document.createElement("div");
+child.setAttribute("id", "total_panier");
+dis_panier.appendChild(child);
+
+let price = 0;
+for (product of game_products) {
+  price += product.price * 100 * product.quantity;
+  child = document.createElement("p");
+  child.innerText =
+    product.quantity.toString() +
+    "x " +
+    product.productName.replaceAll("_", " ");
   document.getElementById("total_panier").appendChild(child);
-};
-*/
+}
+
+child = document.createElement("p");
+child.innerText = "Total: " + price / 100 + "€";
+document.getElementById("total_panier").appendChild(child);*/
